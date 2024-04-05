@@ -136,7 +136,7 @@ void setup_routing() {
 }
 
 void setup() {
-  WiFi.begin("Klondaik", "0934531409"); //don't hack me pazhozhda(((
+  WiFi.begin("Wifi", "pass");
   //add our device to db
   Serial.begin(115200);
   USE_SERIAL.print("Starting server on 192.168.50.247:80 \n");
