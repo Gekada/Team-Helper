@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "b+PC16Oe+k2fTzeBv0mO2/ntEnFjHZ8vPuooex9WwvbRQn9dY/RohC9cGy7gECFlQZbdmbb4/D2MV3lm2gJh8Q==",
+  "success": true,
+  "projectFilePath": "D:\\Проекты\\Team Helper\\TeamHelper.Domain\\TeamHelper.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\germa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

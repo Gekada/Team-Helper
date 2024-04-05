@@ -1,0 +1,30 @@
+<div class="center-container">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="user-form">
+
+        <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="datepicker" [formControl]="dateControl" name="selectedDate" required (dateChange)="onDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput matInput [(ngModel)]="location" name="location" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Duration in minutes</mat-label>
+            <input matInput matInput [(ngModel)]="duration" name="duration" required>
+          </mat-form-field>
+        
+          <mat-form-field>
+            <mat-label>Select Team</mat-label>
+            <mat-select [(ngModel)]="teamId" name="selectedAthletes">
+              <mat-option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+        <button mat-raised-button color="primary" type="submit">Create Training</button>
+      </form>
+</div>

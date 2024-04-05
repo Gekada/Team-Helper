@@ -1,0 +1,67 @@
+
+<button mat-raised-button routerLink="/addAthlete"> {{"Add Athlete" | translate}} </button>
+<mat-form-field>
+    <mat-label>{{"Filter" | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row" mat-sort> {{row.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Name" | translate}} </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Age" | translate}} </th>
+        <td mat-cell *matCellDef="let row"> {{row.age}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Phone Number" | translate}} </th>
+        <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let row" mat-sort> {{row.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deleteBtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row" mat-sort> 
+          <button mat-raised-button  (click)="deleteAthlete(row.id)">
+          {{"Delete Athlete" | translate}}
+          </button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="updateBtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row" mat-sort> 
+          <button mat-raised-button  (click)="UpdateAthlete(row)">
+          {{"Update Athlete" | translate}}
+          </button> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 25, 20, 25]" aria-label="Select page of athletes"></mat-paginator>
+  </div>
+  
+  
+  
+  <!-- Copyright 2023 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at https://angular.io/license -->

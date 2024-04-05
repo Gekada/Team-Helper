@@ -1,0 +1,33 @@
+<div class="center-container">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="user-form">
+      <h2 class="form-title">Add Athlete</h2>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Email" [(ngModel)]="athlete.email" name="Email" required email>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Name" [(ngModel)]="athlete.name" name="Name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Age" [(ngModel)]="athlete.age" name="Age" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Phone Number" [(ngModel)]="athlete.phoneNumber" name="phoneNumber" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Password" type="password" [(ngModel)]="athlete.password" name="password" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Create Athlete</button>
+        </div>
+      </form>
+</div>

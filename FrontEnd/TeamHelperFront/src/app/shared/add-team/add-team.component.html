@@ -1,0 +1,17 @@
+<div class="center-container">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="user-form">
+        <mat-form-field>
+            <mat-label>Team Name</mat-label>
+            <input matInput matInput [(ngModel)]="teamName" name="teamName" required>
+          </mat-form-field>
+        
+          <mat-form-field>
+            <mat-label>Select Athletes</mat-label>
+            <mat-select [(ngModel)]="selectedAthletes" name="selectedAthletes" multiple>
+              <mat-option *ngFor="let athlete of athletes" [value]="athlete.id">{{ athlete.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+        <button mat-raised-button color="primary" type="submit">Create Team</button>
+      </form>
+</div>

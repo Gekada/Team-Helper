@@ -1,0 +1,23 @@
+<div class="center-container">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="user-form">
+      <h2 class="form-title">Update Athlete</h2>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Name" [(ngModel)]="data.name" name="Name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Age" [(ngModel)]="data.age" name="Age" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field class="form-field">
+            <input matInput placeholder="Phone Number" [(ngModel)]="data.phoneNumber" name="phoneNumber" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid" mat-dialog-close>Update Athlete</button>
+        </div>
+      </form>
+</div>

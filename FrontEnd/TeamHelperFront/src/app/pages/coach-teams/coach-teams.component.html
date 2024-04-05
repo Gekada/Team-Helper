@@ -1,0 +1,63 @@
+<button mat-raised-button routerLink="/addTeam"> Add team </button>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row" mat-sort> {{row.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Name" | translate}} </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="membNum">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Member Number" | translate}} </th>
+        <td mat-cell *matCellDef="let row"> {{row.membNumber}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="coachName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Coach" | translate}} </th>
+        <td mat-cell *matCellDef="let row"> {{row.coach.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deleteBtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row" mat-sort> 
+          <button mat-raised-button  (click)="deleteTeam(row.id)">
+          {{"Delete Team" | translate}}
+          </button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="detailsBtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row" mat-sort> 
+          <button mat-raised-button [routerLink]="['/teamDetails', row.id]">
+          {{"Details" | translate}}
+          </button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="updateBtn">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let row" mat-sort> 
+          <button mat-raised-button [routerLink]="['/teamDetails', row.id]">
+          {{"Update" | translate}}
+          </button> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 25, 20, 25]" aria-label="Select page of athletes"></mat-paginator>
+  </div>
